@@ -1,7 +1,11 @@
-Rails.application.routes.draw do
+ Rails.application.routes.draw do
+  root to: 'pages#home'
 
   devise_for :users
 
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'bars/:city', to: 'bars#city', constraints: { city: /[[:alpha:]]/ }
+  resources :bars, only: [:index, :show, :new, :create]
+
+  resources :reviews, only: [:new, :create]
+  resources :reservations, only: [:new, :create, :show, :index]
 end
