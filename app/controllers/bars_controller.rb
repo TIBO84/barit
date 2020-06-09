@@ -12,6 +12,7 @@ class BarsController < ApplicationController
   end
 
   def create
+    # MANQUE owner_id => A récuper via login (pundit)
     @bar = Bar.new(bar_params)
     if @bar.save
       redirect_to bars_path, notice: 'Bar successfully created'
@@ -23,6 +24,6 @@ class BarsController < ApplicationController
   private
 
   def bar_params
-    params.require(:bar).permit(:name, :capacity, :ambiance, :address, :city)
+    params.require(:bar).permit(:name, :capacity, :ambiance, :address, :city.downcase)
   end
 end
