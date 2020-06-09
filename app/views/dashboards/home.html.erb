@@ -1,0 +1,15 @@
+
+    <%= @current_user.name %>
+    <%= @current_user.address %>
+
+    <% @reservations do |reservation| %>
+        <%= reservation %>
+    <% end %>
+
+    <% @bars do |bar| %>
+        <%= bar %> | <%= link_to "Voir", bar_path(bar.id)
+    <% end %>
+
+
+
+    #link_to "Book it", new_reservation_path(@user)
