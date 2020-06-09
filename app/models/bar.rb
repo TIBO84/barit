@@ -4,5 +4,4 @@ class Bar < ApplicationRecord
   has_many  :reservations, dependent: :destroy
   validates :name, uniqueness: { scope: :address }
   validates :name, :capacity, :ambiance, :address, :city, presence: true
-
 end

@@ -16,7 +16,7 @@ u2 = User.create!(first_name: "Mael", last_name: "Le prince", email: "edeecerce@
 
 u3 = User.create!(first_name: "Richard", last_name: "La belle vie", email: "edeecece@eddfzze.com", password:"123456")
 
-b1 = Bar.create!(name:"Le Wagon", capacity: 5, ambiance: "hot", address: "rue des capucins", city: "Lyon", owner_id: u1.id)
+b1 = Bar.create!(name:"Le Wagon", capacity: 5, ambiance: "hot", address: "rue des capucins", city: "lyon", owner_id: u1.id)
 
 b1.owner_id = u1.id
 

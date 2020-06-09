@@ -1,2 +1,9 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+<%= form_tag("bars/", method: "get") do %>
+  <%= label_tag(:city, "Search for:") %>
+  <%= text_field_tag(:city) %>
+  <%= submit_tag("Search") %>
+<% end %>
