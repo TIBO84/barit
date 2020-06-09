@@ -1,2 +1,12 @@
-<h1>Bars#index</h1>
-<p>Find me in app/views/bars/index.html.erb</p>
+<h1><%= "Bars for #{params[:city].capitalize}"  %></h1>
+
+<% @bars.each do |bar| %>
+  <div class="bar-card">
+    <%= bar.name %>
+    <%= bar.capacity %>
+    <%= bar.ambiance %>
+    <%= bar.address %>
+    <%= bar.city %> |
+    <%= link_to "Book this bar", new_reservation_path %>
+  </div>
+<% end %>

@@ -3,7 +3,7 @@
 
   devise_for :users
 
-  get 'bars/:city', to: 'bars#city', constraints: { city: /[[:alpha:]]/ }
+  # get '/bars/:city', to: 'bars#city', constraints: { city: /[[:alpha:]]+/ }
   resources :bars, only: [:index, :show, :new, :create]
 
   resources :reviews, only: [:new, :create]
