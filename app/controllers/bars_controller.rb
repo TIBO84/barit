@@ -1,10 +1,14 @@
 class BarsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show ]
+
   def index
-    @bars = Bar.where(city: params[:city])
+    @bars = policy_scope(Bar).where(city: params[:city])
+    # authorize(@bars)
   end
 
   def show
     @bar = Bar.find(params[:id])
+    authorize(@bar)
   end
 
   def new
@@ -14,6 +18,7 @@ class BarsController < ApplicationController
   def create
     # MANQUE owner_id => A récuper via login (pundit)
     @bar = Bar.new(bar_params)
+    @bar.user = current_user
     if @bar.save
       redirect_to bars_path, notice: 'Bar successfully created'
     else
