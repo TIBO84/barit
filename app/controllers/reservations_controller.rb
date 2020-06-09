@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :set_bar, only: [:new, :create]
-  
+
   def new
     @reservation = Reservation.new
   end
