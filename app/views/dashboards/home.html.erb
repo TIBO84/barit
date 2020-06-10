@@ -1,15 +1,11 @@
+<h1><%= "Dashboard #{@current_user.first_name}" %></h1>
 
-    <%= @current_user.name %>
-    <%= @current_user.address %>
+<%= "#{@current_user.first_name} #{@current_user.last_name}" %>
 
-    <% @reservations do |reservation| %>
-        <%= reservation %>
-    <% end %>
+<% @reservations.each do |reservation| %>
+    <p><%= reservation %></p>
+<% end %>
 
-    <% @bars do |bar| %>
-        <%= bar %> | <%= link_to "Voir", bar_path(bar.id)
-    <% end %>
-
-
-
-    #link_to "Book it", new_reservation_path(@user)
+<% @bars.each do |bar| %>
+   <p><%= bar %> | <%= link_to "Voir", bar_path(bar.id)%></p>
+<% end %>
