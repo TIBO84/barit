@@ -7,5 +7,5 @@
 <% end %>
 
 <% @bars.each do |bar| %>
-   <p><%= bar %> | <%= link_to "Voir", bar_path(bar.id)%></p>
+   <p><%= bar %> | <%= link_to "Voir", bar_path(bar.id)%> | <%= link_to "Reserver", new_reservation_path %></p>
 <% end %>

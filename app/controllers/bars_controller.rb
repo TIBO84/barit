@@ -17,7 +17,7 @@ class BarsController < ApplicationController
     @bar = Bar.new(bar_params)
     @bar.user = current_user
     if @bar.save
-      redirect_to bars_path, notice: 'Bar successfully created'
+      redirect_to dashboard_path, notice: 'Bar successfully created'
     else
       render :new
     end

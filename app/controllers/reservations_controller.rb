@@ -10,7 +10,7 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     @reservation.bar = @bar
     if @reservation.save
-      redirect_to root_path # A faire redirect to dashboard!!!!
+      redirect_to dashboard_path
     else
       render :new
     end 
