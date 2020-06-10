@@ -7,13 +7,14 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(reservation_params)
-    @reservation.bar = @bar
+    @bar = Bar.find(params[:bar_id])
+    @reservation = @bar.reservations.build(reservation_params)
+    @reservation.user_id = current_user.id
     if @reservation.save
       redirect_to dashboard_path
     else
       render :new
-    end 
+    end
   end
 
   private
@@ -23,7 +24,7 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:user_id, :bar_id, :date)
+    params.require(:reservation).permit(:date)
   end
 
 end
