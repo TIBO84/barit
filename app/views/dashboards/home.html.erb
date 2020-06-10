@@ -10,7 +10,7 @@
 
 <h2>Mes bars</h2>
 <% @bars.each do |bar| %>
-   <p><%= bar %> | <%= link_to "Voir", bar_path(bar.id)%></p>
+   <p><%= bar %> | <%= link_to "Voir", bar_path(bar.id)%> | <%= link_to "Reserver", new_reservation_path %></p>
 <% end %>
 
 <%= link_to "home", root_path, class: "btn btn-primary" %>
