@@ -1,14 +1,11 @@
 class BarsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show ]
-
   def index
-    @bars = policy_scope(Bar).where(city: params[:city])
+    @bars = Bar.where(city: params[:city])
     # authorize(@bars)
   end
 
   def show
     @bar = Bar.find(params[:id])
-    authorize(@bar)
   end
 
   def new

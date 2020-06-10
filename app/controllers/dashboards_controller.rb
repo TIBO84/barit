@@ -1,8 +1,9 @@
 class DashboardsController < ApplicationController
+  before_action :authenticate_user!
+
   def home
-    @current_user = Current_user
-    @reservations = Current_user.reservations
-    @bars = Current_user.bars
-    #afficher reservation user et bien d'un user
+    @current_user = current_user
+    @reservations = @current_user.reservations
+    @bars = @current_user.bars
   end
 end
