@@ -1,4 +1,5 @@
 class Bar < ApplicationRecord
+  has_one_attached :photo
   belongs_to :owner, class_name: 'User'
   has_many  :reviews, dependent: :destroy
   has_many  :reservations, dependent: :destroy

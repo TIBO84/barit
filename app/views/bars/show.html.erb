@@ -1,11 +1,11 @@
 <h1>Bars#show</h1>
-<p>Find me in app/views/bars/show.html.erb</p>
 
     <%= @bar.name %>
     <%= @bar.capacity %>
     <%= @bar.ambiance %>
     <%= @bar.address %>
     <%= @bar.city %>
+    
 
 <%= link_to "Book it", new_bar_reservation_path(@bar) %>
 
@@ -18,3 +18,9 @@
 </ul>
 
 <%= link_to "Back", back_button_path(@search)  %>
+
+<%if @bar.photo.attached?%>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @bar.photo.key, height: 600, width: 400%>')">
+  <%=@bar.name%>
+</div>
+<%end%>

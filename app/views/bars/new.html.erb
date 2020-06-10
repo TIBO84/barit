@@ -1,5 +1,4 @@
 <h1>Bars#new</h1>
-<p>Find me in app/views/bars/new.html.erb</p>
 
 <%= simple_form_for @bar do |f| %>
     <%= f.input :name %>
@@ -7,5 +6,6 @@
     <%= f.input :ambiance %>
     <%= f.input :address %>
     <%= f.input :city %>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit %>
 <% end %>
