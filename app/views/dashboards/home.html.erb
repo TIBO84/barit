@@ -1,16 +1,63 @@
 <h1><%= "Dashboard #{@current_user.first_name}" %></h1>
 
-<%= "#{@current_user.first_name} #{@current_user.last_name}" %>
+<% if renter?(@current_user) %>
+  <h2>My reservations</h2>
 
+  <table>
+    <thead>
+      <tr>
+        <th>For</th>
+        <th>Bar name</th>
+        <th>Made</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<h2>Mes réservations</h2>
-<% @reservations.each do |reservation| %>
-    <p><%= reservation %> | <%= link_to "Let a review", new_bar_review_path(reservation.bar) %></p>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <% bar = Bar.find(reservation.bar_id) %>
+        <tr>
+          <td><%= reservation.date.strftime('%Y-%m-%d') %></td>
+          <td><%= link_to "#{bar.name}", bar_path(bar)  %></td>
+          <td><%= reservation.created_at.strftime('%Y-%m-%d') %></td>
+          <!-- <td><%#= link_to 'Edit', edit_reservation_path(flat) %></td> -->
+          <!-- <td><%#= link_to 'Cancel', "", method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
+          <td><%= link_to "Let a review", new_bar_review_path(reservation.bar) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 <% end %>
 
-<h2>Mes bars</h2>
-<% @bars.each do |bar| %>
-   <p><%= bar %> | <%= link_to "Voir", bar_path(bar.id)%></p>
-<% end %>
+<% if owner?(@current_user) %>
+  <h2>Mes bars</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Added</th>
+        <th>Total reservations</th>
+        <th>Next reservation</th>
+      </tr>
+    </thead>
 
-<%= link_to "home", root_path, class: "btn btn-primary" %>
+    <tbody>
+      <% @bars.each do |bar| %>
+      <tr>
+        <td>
+        <%= link_to bar.name, bar_path(bar.id)%>
+        </td>
+        <td><%= address(bar) %></td>
+        <td><%= bar.created_at.strftime('%Y-%m-%d') %></td>
+        <td><%= total_reservations(bar) %></td>
+        <td><%= next_reservation(bar) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+
+
+  <%= link_to "home", root_path, class: "btn btn-primary" %>
+<% end %>
