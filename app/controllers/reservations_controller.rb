@@ -12,7 +12,7 @@ class ReservationsController < ApplicationController
       redirect_to root_path # A faire redirect to dashboard!!!!
     else
       render :new
-    end
+    end 
   end
 
   private
@@ -24,4 +24,5 @@ class ReservationsController < ApplicationController
   def reservation_params
     params.require(:reservation).permit(:user_id, :bar_id, :date)
   end
+
 end
