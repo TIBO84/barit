@@ -1,11 +1,14 @@
 class BarsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
+    cookies[:search] = params[:city]
+    puts cookies[:search]
     @bars = Bar.where("city LIKE :query", query: "#{params[:city]}%")
   end
 
   def show
+    @search = cookies[:search]
     @bar = Bar.find(params[:id])
   end
 
