@@ -34,4 +34,17 @@ module ApplicationHelper
       return "--"
     end
   end
+
+  def rating(bar)
+    ratings = []
+    @bar.reviews.each do |review|
+      ratings << review.rating
+    end
+    if ratings != []
+      average = ratings.sum / ratings.size.to_f
+      return "#{average.round(2)} / 5"
+    else
+      return "- / 5"
+    end
+  end
 end

@@ -9,19 +9,15 @@
 
 <%= link_to "Book it", new_bar_reservation_path(@bar) %>
 
+<p><%= "Rating : #{rating(@bar)}" %></p>
+
 <ul class="list-group">
-  <% ratings = [] %>
   <% @bar.reviews.each do |review| %>
     <li class="list-group-item">
       <%= review.content %>
-     <% ratings << review.rating %>
     </li>
   <% end %>
-  
-  <% if ratings != [] %>
-    <%= average = ratings.sum / ratings.size.to_f %>
-  <%end%>
-  
 </ul>
+
 
 <%= link_to "Back", back_button_path(@search)  %>
