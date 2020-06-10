@@ -5,12 +5,12 @@
 
 <h2>Mes réservations</h2>
 <% @reservations.each do |reservation| %>
-    <p><%= reservation %></p>
+    <p><%= reservation %> | <%= link_to "Let a review", new_bar_review_path(reservation.bar) %></p>
 <% end %>
 
 <h2>Mes bars</h2>
 <% @bars.each do |bar| %>
-   <p><%= bar %> | <%= link_to "Voir", bar_path(bar.id)%> | <%= link_to "Reserver", new_reservation_path %></p>
+   <p><%= bar %> | <%= link_to "Voir", bar_path(bar.id)%></p>
 <% end %>
 
 <%= link_to "home", root_path, class: "btn btn-primary" %>
