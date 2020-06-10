@@ -1,4 +1,6 @@
 class BarsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @bars = Bar.where("city LIKE :query", query: "#{params[:city]}%")
   end
@@ -12,9 +14,8 @@ class BarsController < ApplicationController
   end
 
   def create
-    # MANQUE owner_id => A récuper via login (pundit)
     @bar = Bar.new(bar_params)
-    @bar.user = current_user
+    @bar.owner = current_user
     if @bar.save
       redirect_to dashboard_path, notice: 'Bar successfully created'
     else
