@@ -2,10 +2,15 @@
 
 <%= "#{@current_user.first_name} #{@current_user.last_name}" %>
 
+
+<h2>Mes réservations</h2>
 <% @reservations.each do |reservation| %>
     <p><%= reservation %></p>
 <% end %>
 
+<h2>Mes bars</h2>
 <% @bars.each do |bar| %>
    <p><%= bar %> | <%= link_to "Voir", bar_path(bar.id)%></p>
 <% end %>
+
+<%= link_to "home", root_path, class: "btn btn-primary" %>
