@@ -26,9 +26,10 @@ class BarsController < ApplicationController
     end
   end
 
-  private
+    private
 
   def bar_params
-    params.require(:bar).permit(:name, :capacity, :ambiance, :address, :city.downcase)
+    params.require(:bar).permit(:name, :capacity, :ambiance, :address, :city.downcase, :photo)
   end
+  
 end
