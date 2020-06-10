@@ -6,7 +6,4 @@ class DashboardsController < ApplicationController
     @reservations = @current_user.reservations
     @bars = @current_user.bars
   end
-
-  
-
 end
