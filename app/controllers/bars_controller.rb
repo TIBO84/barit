@@ -1,7 +1,6 @@
 class BarsController < ApplicationController
   def index
-    @bars = Bar.where(city: params[:city])
-    # authorize(@bars)
+    @bars = Bar.where("city LIKE :query", query: "#{params[:city]}%")
   end
 
   def show
