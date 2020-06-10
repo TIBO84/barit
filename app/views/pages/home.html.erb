@@ -1,13 +1,8 @@
 
-<div class="card-product">
-   <%=image_tag("bars_bannier.jpeg") %>
-  <div class="navbar fixed-top navbar-expand-sm navbar-light">
-  
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <%unless user_signed_in?%>
@@ -20,7 +15,7 @@
           <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="destroy_user_session_path">Me déconnecter</a>
-            <a class="dropdown-item" href="#">Voir mon profil</a>
+            <a class="dropdown-item" href="dashboard_path">Voir mon profil</a>
             <a class="dropdown-item" href="new_user_password_path">Changer mon mot de passe</a>
           </div>
         </li>
@@ -28,27 +23,34 @@
     </ul>
   </div>
 </div>
+
+
+<div style= "width: 100vw; height: 60vh; background-image: url(<%=asset_path "bars_bannier.jpeg" %>); background-size: cover; background-position: center" >
+  <h1 style= "size: 100rem"> Barit </h1>
+  <p> Bests bars in the world </p>
 </div>
 
 
-<div class="card" style="width: 64rem;">
-  <%=image_tag("sick_party.jpeg") %>
-  <div class="card-body">
-    <h5 class="card-title">Privatize a bar</h5>
-    <p class="card-text">Privatize a bar to organize a sick party with all your alcoholics mates.</p>
+<div class="d-flex">
 
-    <%= form_tag("bars/", method: "get") do %>
-    <%= label_tag(:city, "Search a bar in a specific city:") %>
-    <%= text_field_tag(:city) %>
-    <%= submit_tag("Search") %>
-    <% end %>
+  <div class="card" style="width: 50vw; height: 40vh; background-image: url(<%=asset_path "sick_party.jpeg" %>); background-size: cover; background-position: center">
+    <div class="card-body">
+      <h5 class="card-title">Privatize a bar</h5>
+      <p class="card-text">Privatize a bar to organize a sick party with all your alcoholics mates.</p>
+      <%= form_tag("bars/", method: "get") do %>
+      <%= label_tag(:city, "Search a bar in a specific city:") %>
+      <%= text_field_tag(:city) %>
+      <%= submit_tag("Search") %>
+      <% end %>
   </div>
 
-  <div class="card" style="width: 64rem;">
-  <%=image_tag("rent_your_bar.jpeg") %>
-  <div class="card-body">
-    <h5 class="card-title">Rent your bar</h5>
-    <p class="card-text">Rent your bar by the night for a price that doubles your best sales on the best day of the year.</p>
-    <a href="#" class="btn btn-primary">Propose a bar</a>
+  <div class="card" style="width: 50vw; height: 40vh; background-image: url(<%=asset_path "rent_your_bar.jpeg" %>); background-size: cover; background-position: center">
+      <div class="card-body">
+        <h5 class="card-title">Rent your bar</h5>
+        <p class="card-text">Rent your bar by the night for a price that doubles your best sales on the best day of the year.</p>
+        <a href="#" class="btn btn-primary">Propose a bar</a>
+      </div>
   </div>
+
 </div>
+
