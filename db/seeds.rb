@@ -35,7 +35,7 @@ review_1  = Review.create!(user_id: u2.id, bar_id: b1.id, content:"this bar is f
 review_2 = Review.create!(user_id: u2.id, bar_id: b1.id, content:"this bar sucks" , rating: 2)
 review_3 = Review.create!(user_id: u2.id, bar_id: b1.id, content:"Great night ! Thank you Richard and Maël !" , rating: 4)
 
-review_4  = Review.create!(user_id: u1.id, bar_id: b2.id, content:"Best party ever in this place" , rating: 5)
-review_5  = Review.create!(user_id: u1.id, bar_id: b2.id, content:"Would have been perfect with more beers" , rating: 3)
+review_4  = Review.create!(user_id: u1.id, bar_id: b1.id, content:"Best party ever in this place" , rating: 5)
+review_5  = Review.create!(user_id: u1.id, bar_id: b1.id, content:"Would have been perfect with more beers" , rating: 3)
 
 puts ".... SEEDS OK"
