@@ -1,18 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'faker'
+
+puts "............ DESTROYING DATABASE"
 Bar.destroy_all
 Reservation.destroy_all
 Review.destroy_all
 User.destroy_all
 
-puts "............ SEEDS STARTING"
+puts "............ SEED STARTING"
 
 haddress = {
 "lyon" => [
@@ -128,39 +122,6 @@ puts "............ CREATING 30 BARS"
   bar.save!
 end
 
-# 10.times do |i|
-#   file = open("image_compress/bar_#{11+i}.jpg")
-#   bar = Bar.new(
-#     name: "#{Faker::Company.name}",
-#     capacity: rand(10..150),
-#     ambiance: mood.sample,
-#     address: ,
-#     city: villes.sample,
-#     price: "#{Faker::Commerce.price(range: 0..2000)}",
-#     description: "#{Faker::Restaurant.description}",
-#     owner_id: u1.id
-#   )
-#   bar.photo.attach(io: file, filename: "bar_#{11+i}.jpg", content_type: 'image/jpg')
-#   bar.save!
-# end
-
-# 10.times do |i|
-#   file = open("image_compress/bar_#{21+i}.jpg")
-#   bar = Bar.new(
-#     name: "#{Faker::Company.name}",
-#     capacity: rand(10..150),
-#     ambiance: mood.sample,
-#     address: "#{Faker::Address.street_address}",
-#     city: villes.sample,
-#     price: "#{Faker::Commerce.price(range: 0..2000)}",
-#     description: "#{Faker::Restaurant.description}",
-#     owner_id: u1.id
-#   )
-#   bar.photo.attach(io: file, filename: "bar_#{21+i}.jpg", content_type: 'image/jpg')
-#   bar.save!
-# end
-
-
 file = open("image_compress/bar_31.jpg")
 b1 = Bar.new(name:"Le Wagon", capacity: 5, ambiance: "HOT XXX", address: "20 rue des capucins", city: "lyon", owner_id: o1.id)
 b1.photo.attach(io: file, filename: "bar_31.jpg", content_type: 'image/jpg')
@@ -184,12 +145,5 @@ bars.each do |bar|
     )
   end
 end
-
-# review_1  = Review.create!(user_id: o2.id, bar_id: b1.id, content:"this bar is fucking awesome" , rating: 5)
-# review_2 = Review.create!(user_id: o2.id, bar_id: b1.id, content:"this bar sucks" , rating: 2)
-# review_3 = Review.create!(user_id: o2.id, bar_id: b1.id, content:"Great night ! Thank you Richard and Maël !" , rating: 4)
-# review_4  = Review.create!(user_id: o1.id, bar_id: b1.id, content:"Best party ever in this place" , rating: 5)
-# review_5  = Review.create!(user_id: o1.id, bar_id: b1.id, content:"Would have been perfect with more beers" , rating: 3)
-
 
 puts "............ SEED OK"
