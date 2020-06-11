@@ -1,11 +1,9 @@
-<h1>Bars#show</h1>
+<h1><%= @bar.name %></h1>
 
-
-    <p>Name : <%= @bar.name %></p>
     <p>Capacity : <%= @bar.capacity %></p>
-    <p>Ambiance : <%= @bar.ambiance %></p>
+    <p>Ambiance : <%= @bar.ambiance.capitalize %></p>
     <p>Address : <%= @bar.address %></p>
-    <p>City : <%= @bar.city %></p>
+    <p>City : <%= @bar.city.capitalize %></p>
     <p>Price : <%= @bar.price %>$</p>
     <p>Description : <%= @bar.description %></p>
 
