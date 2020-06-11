@@ -122,6 +122,7 @@ puts "............ CREATING 30 BARS"
   bar.save!
 end
 
+
 file = open("image_compress/bar_31.jpg")
 b1 = Bar.new(name:"Le Wagon", capacity: 5, ambiance: "HOT XXX", address: "20 rue des capucins", city: "lyon", owner_id: o1.id)
 b1.photo.attach(io: file, filename: "bar_31.jpg", content_type: 'image/jpg')

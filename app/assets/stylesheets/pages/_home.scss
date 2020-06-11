@@ -1,5 +1,63 @@
 // Specific CSS for your home-page
+.d-flex{
+  justify-content: space-around
+}
+
 .cards{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around
+}
+
+.bannier_container{
+  vertical-align: bottom;
+  margin-bottom: 3rem;
+}
+
+
+.bannier{
+  text-align: center;
+  color: #08dbb6;
+  font-family: "Poppins",Sans-serif;
+  font-size: 86px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+}
+
+.bannier_baseline{
+  text-align: center;
+  color: rgb(255, 255, 255);
+  font-family: "Poppins",Sans-serif;
+  font-size: 1.4em;
+  letter-spacing: 1.5px;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card-title{
+  color: rgb(255, 255, 255);
+  font-family: "Poppins",Sans-serif;
+  font-size: 1.4em;
+  letter-spacing: 1.5px;
+}
+
+.card-text{
+  color: rgb(255, 255, 255);
+  font-family: "Poppins",Sans-serif;
+  font-size: 1.4em;
+  letter-spacing: 1.5px;
+}
+
+.label_tag{
+  color: rgb(255, 255, 255);
+  font-family: "Poppins",Sans-serif;
+  font-size: 1.4em;
+  letter-spacing: 1.5px;
+}
+
+
+.card{
+  width: 700px;
 }
