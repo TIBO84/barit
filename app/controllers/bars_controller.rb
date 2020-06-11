@@ -1,5 +1,5 @@
 class BarsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :create]
 
   def index
     cookies[:search] = params[:city]
@@ -31,5 +31,5 @@ class BarsController < ApplicationController
   def bar_params
     params.require(:bar).permit(:name, :capacity, :ambiance, :address, :city.downcase, :photo)
   end
-  
+
 end
