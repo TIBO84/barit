@@ -4,7 +4,7 @@ class BarsController < ApplicationController
   def index
     cookies[:search] = params[:city]
     puts cookies[:search]
-    @bars = Bar.where("city LIKE :query", query: "#{params[:city]}%").geocoded
+    @bars = Bar.where("city ILIKE :query", query: "#{params[:city]}%").geocoded
     @markers = @bars.map do |bar|
       {
         lat: bar.latitude,
