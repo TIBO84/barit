@@ -1,34 +1,57 @@
-<h1><%= @bar.name %></h1>
+<div class="container">
 
-    <p>Capacity : <%= @bar.capacity %></p>
-    <p>Ambiance : <%= @bar.ambiance.capitalize %></p>
-    <p>Address : <%= @bar.address %></p>
-    <p>City : <%= @bar.city.capitalize %></p>
-    <p>Price : <%= @bar.price %>$</p>
-    <p>Description : <%= @bar.description %></p>
+  <h1><%= @bar.name %></h1>
+  <div class="card mb-3" style="position: relative">
+    <%= link_to "Book it", new_bar_reservation_path(@bar), class: "btn btn-primary" ,style: "position: absolute; top: 30px; right: 30px"  %>
+    <%= link_to "Back to search", back_button_path(@search), class: "btn btn-primary" ,style: "position: absolute; top: 30px; left: 30px"  %>
+    <%if @bar.photo.attached?%>
+      <%= image_tag @bar.photo, class: "card-img-top"%>
+    <% end %>
+    <div class="card-body">
+      <div class="row m-0 d-flex justify-content-between">
+        <h5 class="card-title">Capacity : <%= @bar.capacity %></h5>
+        <h5 class="card-title">Price : <%= @bar.price %> $</h5>
+        <h5 class="card-title"><%= "Rating : #{rating(@bar)}" %></h5>
+
+      </div>
+
+      <p class="card-text">Ambiance : <%= @bar.ambiance.capitalize %></p>
+      <p class="card-text"><small class="text-muted"><%= @bar.description %></small></p>
+      <p class="card-text">Address : <%= @bar.address %></p>
+      <p class="card-text">City : <%= @bar.city.capitalize %></p>
+    </div>
+  </div>
+
+      <p></p>
+      <p></p>
 
 
 
 
-<p><%= "Rating : #{rating(@bar)}" %></p>
-
-<%= link_to "Book it", new_bar_reservation_path(@bar) %>
 
 
 
-<ul class="list-group">
-  <% @bar.reviews.each do |review| %>
-    <li class="list-group-item">
-      <%= review.content %>
-    </li>
-  <% end %>
-</ul>
+  <ul class="list-group">
+    <% @bar.reviews.each do |review| %>
+      <li class="list-group-item">
+        <table>
+          <tbody>
+            <col width="140px" />
+            <col width=auto />
+            <col width="60px" />
+            <tr>
+              <td>
+                <p class="review_main"><%= User.find(review.user_id).first_name %></p>
+                <p class="text-muted"><%= review.created_at.strftime('%Y-%m-%d')%></p>
+              </td>
+              <td class="review_content"><%= review.content %></td>
+              <td class="review_main"><%= review.rating %> / 5</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+    <% end %>
 
 
-<%= link_to "Back", back_button_path(@search)  %>
 
-<%if @bar.photo.attached?%>
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @bar.photo.key, height: 600, width: 400%>')">
-  <%=@bar.name%>
-</div>
-<%end%>
+
