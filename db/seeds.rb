@@ -32,7 +32,7 @@ villes = %w[lyon montpellier paris nantes]
     city: villes.sample,
     price: "#{Faker::Commerce.price(range: 0..2000)}",
     description: "#{Faker::Restaurant.description}",
-    owner_id: u3.id
+    owner_id: u1.id
   )
   bar.photo.attach(io: file, filename: "bar_#{i+1}.jpg", content_type: 'image/jpg')
   bar.save!
@@ -48,7 +48,7 @@ end
     city: villes.sample,
     price: "#{Faker::Commerce.price(range: 0..2000)}",
     description: "#{Faker::Restaurant.description}",
-    owner_id: u3.id
+    owner_id: u2.id
   )
   bar.photo.attach(io: file, filename: "bar_#{11+i}.jpg", content_type: 'image/jpg')
   bar.save!
