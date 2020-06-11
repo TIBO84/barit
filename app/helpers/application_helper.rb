@@ -37,8 +37,10 @@ module ApplicationHelper
 
   def rating(bar)
     ratings = []
-    @bar.reviews.each do |review|
-      ratings << review.rating
+    if bar.reviews.any?
+      bar.reviews.each do |review|
+        ratings << review.rating
+      end
     end
     if ratings != []
       average = ratings.sum / ratings.size.to_f

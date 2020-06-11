@@ -1,15 +1,20 @@
-<h1>Bars#show</h1>
+<h1><%= @bar.name %></h1>
 
-    <%= @bar.name %>
-    <%= @bar.capacity %>
-    <%= @bar.ambiance %>
-    <%= @bar.address %>
-    <%= @bar.city %>
-    
+    <p>Capacity : <%= @bar.capacity %></p>
+    <p>Ambiance : <%= @bar.ambiance.capitalize %></p>
+    <p>Address : <%= @bar.address %></p>
+    <p>City : <%= @bar.city.capitalize %></p>
+    <p>Price : <%= @bar.price %>$</p>
+    <p>Description : <%= @bar.description %></p>
+
+
+
+
+<p><%= "Rating : #{rating(@bar)}" %></p>
 
 <%= link_to "Book it", new_bar_reservation_path(@bar) %>
 
-<p><%= "Rating : #{rating(@bar)}" %></p>
+
 
 <ul class="list-group">
   <% @bar.reviews.each do |review| %>

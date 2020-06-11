@@ -1,12 +1,27 @@
-<h1><%= "Bars for #{params[:city].capitalize}"  %></h1>
 
-<% @bars.each do |bar| %>
-  <div class="bar-card">
-    <%= bar.name %>
-    <%= bar.capacity %>
-    <%= bar.ambiance %>
-    <%= bar.address %>
-    <%= bar.city %> |
-    <%= link_to "See this bar", bar_path(bar) %>
+<div class="container">
+  <h1><%= "Bars for #{params[:city].capitalize}"  %></h1>
+<div class="row">
+  <% @bars.each do |bar| %>
+<div class="card" style="width: 20rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= bar.name %></h5>
+    <p class="card-text"><%= bar.description%></p>
+    <a href="#" class="btn btn-primary">Book It</a>
   </div>
+</div>
 <% end %>
+
+  </div>
+</div>
+
+
+<div class="container">
+  <div id="map"
+       style="width: 100%; height: 600px; margin-top: 30px;"
+       data-markers="<%= @markers.to_json %>"
+       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+
