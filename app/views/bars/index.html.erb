@@ -7,6 +7,10 @@
     <%= bar.ambiance %>
     <%= bar.address %>
     <%= bar.city %> |
+    <%= @bar.price %>
+    <%= @bar.description %>
     <%= link_to "See this bar", bar_path(bar) %>
   </div>
 <% end %>
+
+<%= link_to "Back Home", root_path %>
