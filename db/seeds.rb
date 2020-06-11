@@ -98,7 +98,9 @@ o2 = User.create!(first_name: "Mael", last_name: "Efant", email: "o2@wagon.com",
 u1 = User.create!(first_name: "Richard", last_name: "Dassault", email: "u1@wagon.com", password:"secret")
 u2 = User.create!(first_name: "Jo", last_name: "Zéfine", email: "u2@wagon.com", password:"secret")
 u3 = User.create!(first_name: "Cassandre", last_name: "Ié", email: "u3@wagon.com", password:"secret")
+
 mood = %w[Electro Punk Reggae Hip-hop Jazz Hot]
+
 villes = %w[lyon montpellier nantes]
 
 owners = [o1, o2]
