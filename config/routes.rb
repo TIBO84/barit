@@ -1,5 +1,6 @@
  Rails.application.routes.draw do
 
+  devise_for :views
   root to: 'pages#home'
   get 'dashboard', to: "dashboards#home", as: :dashboard
 
