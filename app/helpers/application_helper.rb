@@ -44,7 +44,7 @@ module ApplicationHelper
     end
     if ratings != []
       average = ratings.sum / ratings.size.to_f
-      return "#{average.round(2)} / 5"
+      return "#{average.round(1)} / 5"
     else
       return "- / 5"
     end
