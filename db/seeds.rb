@@ -193,7 +193,7 @@ bars.each do |bar|
       user_id: renters.sample.id ,
       bar_id: b4.id,
       content: Faker::Restaurant.review,
-      rating: rand(4..5)
+      rating: rand(5..5)
     )
   end
 end
