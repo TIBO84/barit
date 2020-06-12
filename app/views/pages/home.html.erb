@@ -1,4 +1,4 @@
-<div class="bannier_container" style= "width: 100vw; height: 60vh; background-image: url(<%=asset_path "bars_bannier.jpg" %>); background-size: cover; background-position: bottom" >
+<div class="bannier_container" style= "width : 100vw; height: 60vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=asset_path "bars_bannier.jpg" %>); background-size: cover; background-position: bottom;" >
   <h1 class="bannier" style= "size: 100rem"> Barit </h1>
   <p class= "bannier_baseline"> Bests bars in the world </p>
 </div>
@@ -6,10 +6,10 @@
 
 <div class="d-flex">
   
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%=asset_path "sick_party.jpg" %>);">
-    <div class="card-body">
-      <h5 class="card-title">Privatize a bar</h5>
-      <p class="card-text">Privatize a bar to organize a sick party with all your alcoholics mates.</p>
+  <div class="home_card" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%=asset_path "sick_party.jpg" %>); background-size: cover;">
+    <div class="home_card-body">
+      <h5 class="home_card-title">Privatize a bar</h5>
+      <p class="home_card-text">Privatize a bar to organize a sick party with all your alcoholics mates.</p>
       <%= form_tag("bars/", method: "get") do %>
       <%= label_tag(:city, "Search a bar in a specific city:") %>
       <%= text_field_tag :city, nil, placeholder: 'Type the city here' %> 
@@ -18,13 +18,12 @@
     </div>
   </div>
 
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%=asset_path "rent_your_bar.jpg" %>);">
-      <div class="card-body">
-        <h5 class="card-title">Rent your bar</h5>
-        <p class="card-text">Rent your bar by the night for a price that doubles your best sales on the best day of the year.</p>
-        <%= link_to 'Propose a bar', new_bar_path, class:"btn btn-primary" %>
+  <div class="home_card" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%=asset_path "rent_your_bar.jpg" %>); background-size: cover;">
+      <div class="home_card-body">
+        <h5 class="home_card-title">Rent your bar</h5>
+        <p class="home_card-text">Rent your bar by the night for a price that doubles your best sales on the best day of the year.</p>
+        <%= link_to 'Propose a bar', new_bar_path, id: "homepage", class:"btn btn-primary" %>
       </div>
   </div>
-
 </div>
 
