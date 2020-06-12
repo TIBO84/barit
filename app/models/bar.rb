@@ -1,6 +1,6 @@
 class Bar < ApplicationRecord
   def full_address
-    [address, city, 'France'].compact.join(', ')
+    [address, city.capitalize, 'France'].compact.join(', ')
   end
 
   geocoded_by :full_address

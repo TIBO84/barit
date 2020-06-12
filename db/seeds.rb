@@ -149,13 +149,20 @@ bars.each do |bar|
   end
 end
 
-puts "............ CREATING 6 RESERVATIONS FOR USER o1"
+puts "............ CREATING 6 RESERVATIONS FOR USER o1 and u1"
 6.times  do
   Reservation.create!(
-    date: Date.tomorrow,
+    date: Date.tomorrow+(rand(2..140)),
     user_id: o1.id,
     bar_id: bars.sample.id
   )
 end
 
+6.times  do
+  Reservation.create!(
+    date: Date.tomorrow+(rand(2..140)),
+    user_id: u1.id,
+    bar_id: bars.sample.id
+  )
+end
 puts "............ SEED OK"
