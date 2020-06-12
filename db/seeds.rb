@@ -92,9 +92,9 @@ haddress = {
 }
 
 puts "............ CREATING 5 USERS"
-o1 = User.create!(first_name: "Thibault", last_name: "Dissé", email: "thibault@wagon.com", password:"secret")
+o1 = User.create!(first_name: "Thibault", last_name: "Dissé", email: "o1@wagon.com", password:"secret")
 o2 = User.create!(first_name: "Mael", last_name: "Efant", email: "richard@wagon.com", password:"secret")
-
+tibo = User.create!(first_name: "Thibault", last_name: "Dissé", email: "thibault@wagon.com", password:"secret")
 u1 = User.create!(first_name: "Richard", last_name: "Dassault", email: "u1@wagon.com", password:"secret")
 u2 = User.create!(first_name: "Jo", last_name: "Zéfine", email: "u2@wagon.com", password:"secret")
 u3 = User.create!(first_name: "Cassandre", last_name: "Ié", email: "u3@wagon.com", password:"secret")
@@ -161,7 +161,7 @@ b6.photo.attach(io: file, filename: "bar_30.jpg", content_type: 'image/jpg')
 b6.save!
 
 
-file = open("image_compress/bar_31.jpg") 
+file = open("image_compress/bar_31.jpg")
 b7 = Bar.new(name:"Le Wagon", capacity: 5, ambiance: "Electro", address: "20 rue des capucins", city: "lyon", owner_id: o1.id)
 b7.photo.attach(io: file, filename: "bar_31.jpg", content_type: 'image/jpg')
 b7.save!
@@ -210,7 +210,7 @@ bars.each do |bar|
   end
 end
 
-puts "............ CREATING 6 RESERVATIONS FOR USER o1 and u1"
+puts "............ CREATING 6 RESERVATIONS FOR USER o1, u1, and TIBO"
 6.times  do
   Reservation.create!(
     date: Date.tomorrow+(rand(2..140)),
@@ -226,4 +226,15 @@ end
     bar_id: bars.sample.id
   )
 end
+
+dates = %w[2020-03-12 2018-12-25 2019-05-09 2020-04-18]
+dates.each do |date|
+  Reservation.create!(
+    date: date,
+    user_id: tibo.id,
+    bar_id: bars.sample.id
+  )
+
+end
+
 puts "............ SEED OK"
