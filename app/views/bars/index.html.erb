@@ -3,13 +3,30 @@
     </div>
 </div>
 <div class="container">
-    <%if (params[:city].present?) %>
-    <h1><%= "Bars for the city of #{params[:city].capitalize}" %></h1>
-    <% else %>
-    <h1><%= "The list of Bars" %></h1>
-    <% end %>
+  <div class="d-flex justify-content-between align-items-center">
+    <div>
+      <%if (params[:city].present?) %>
+        <h1><%= "Bars for the city of #{params[:city].capitalize}" %></h1>
+      <% else %>
+        <h1><%= "The list of Bars" %></h1>
+      <% end %>
+    </div>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: rgb(10, 219, 182)">
+        All atmospheres 💃🕺
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <% mood = %w[Electro Punk Reggae Hip-hop Jazz Hot] %>
+        <% mood.each do |m| %>
+          <%= link_to m, {city: params[:city], ambiance: m}, class: 'dropdown-item' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
     <div class="row m-0 d-flex justify-content-between">
-        <% @bars.each do |bar| %>
+        <% sorted_bars = @bars.sort_by { |a| a.rating }.reverse %>
+        <% sorted_bars.each do |bar| %>
         <div class="card mr-3 mb-5 shadow-lg shadow bg-white rounded" style="width: 20rem;">
             <%= image_tag bar.photo, class: "img" %>
             <div class=average-text>
@@ -33,4 +50,5 @@
 
     </div>
 </div>
+
 

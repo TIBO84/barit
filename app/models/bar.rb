@@ -3,6 +3,20 @@ class Bar < ApplicationRecord
     [address, city.capitalize, 'France'].compact.join(', ')
   end
 
+  def rating
+    ratings = []
+    if reviews.any?
+      reviews.each do |review|
+        ratings << review.rating
+      end
+    end
+    if ratings != []
+      average = ratings.sum / ratings.size.to_f
+      return average.round(1)
+    else
+      return 0
+    end
+  end
   geocoded_by :full_address
   after_validation :geocode, if: :will_save_change_to_address?
 
