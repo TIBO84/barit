@@ -86,6 +86,13 @@
 
 .bouton_search{
   margin-top: 0.8rem;
+  color: darken($color: #000000, $amount: 0);
+  background-color: #08DBB6;
+}
+
+.propose_a_bar{
+  color: darken($color: #000000, $amount: 0);
+  background-color: #08DBB6;
 }
 
 .type_a_city{

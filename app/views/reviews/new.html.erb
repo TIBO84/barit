@@ -4,7 +4,7 @@
 <%= simple_form_for([@bar, @review]) do |r| %>
   <%= r.input :content %>
   <%= r.input :rating, collection: Review::RATING, include_blank: false %>
-  <%= r.submit class: "btn btn-primary"%>
+  <%= r.submit class: "btn btn-primary color_home"%>
 <% end %>
 
 </div>
