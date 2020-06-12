@@ -1,13 +1,55 @@
 h1 {
     font-size: 50px;
+    font-family: 'Knewave', cursive;
+    margin-bottom: 30px;
 }
-
 
 .img{
     height: 190px;
 }
 
-.card-body {
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+#map {
+    margin-bottom: 50px;
+    width: 100%; 
+    height: 600px; 
+    margin-top: 30px;
+}
+
+.average-text {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    position: absolute;
+    top: 150px; right: -35px;
+    background-color: white;
+    border: 2px black dotted;
+    transition: background-color 1s;
 
 }
 
+.average-text:hover {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    position: absolute;
+    top: 150px; right: -35px;
+    border: 3px black solid;
+}
+
+.average-number {
+    vertical-align: middle;
+    margin-top: 18px;
+    margin-left: 10px;
+    
+}
+
+.card {
+    position: relative;
+    border: 1px black solid;
+    border-radius: 5%;
+}

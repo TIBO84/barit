@@ -13,7 +13,6 @@
       </tr>
     </thead>
 
-<%= password_field_tag (:id_name) %>
     <tbody>
       <% @reservations.each do |reservation| %>
       <% bar = Bar.find(reservation.bar_id) %>
