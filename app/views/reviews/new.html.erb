@@ -1,8 +1,11 @@
-
-<h1>Reviews#new</h1>
+<div class="container">
+<h1>Let a review</h1>
 
 <%= simple_form_for([@bar, @review]) do |r| %>
-  <%= r.input_field :content %>
+  <%= r.input :content %>
   <%= r.input :rating, collection: Review::RATING, include_blank: false %>
-  <%= r.submit %>
+  <%= r.submit class: "btn btn-primary"%>
 <% end %>
+
+</div>
+

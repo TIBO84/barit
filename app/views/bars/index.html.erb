@@ -1,13 +1,23 @@
 <div class="container">
-    <h1><%= "Bars for #{params[:city].capitalize}"  %></h1>
-    <div class="row m-0">
+      <%if (params[:city].present?) %>
+     <h1><%= "Bars for the city of #{params[:city].capitalize}" %></h1>
+    <% else %>
+      <h1><%= "The list of Bars" %></h1>
+    <% end %>
+    <div class="row m-0 d-flex justify-content-between">
         <% @bars.each do |bar| %>
-        <div class="card mr-3" style="width: 20rem;">
-           <%= image_tag bar.photo, class: "img" %>
+        <div class="card mr-3 mb-5 shadow-lg shadow bg-white rounded" style="width: 20rem;">
+            <%= image_tag bar.photo, class: "img" %>
             <div class="card-body">
-                <h5 class="card-title"><%= bar.name %></h5>
-                <p class="card-text text-truncate"><%= bar.description%></p>
-                <%= link_to 'Book It', new_bar_reservation_path(bar), class: "btn btn-primary" %>
+                <h5 class="card-title text-truncate"><%= bar.name %></h5>
+
+                <p class="card-text text-truncate"><%= bar.ambiance%></p>
+                
+
+                <div class="buttons">
+                    <%= link_to 'See more details', bar_path(bar), class: "btn btn-outline-primary" %>
+                    <%= link_to 'Book It', new_bar_reservation_path(bar), class: "btn btn-outline-primary" %>
+                </div>
             </div>
         </div>
         <% end %>

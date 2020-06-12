@@ -11,9 +11,8 @@
       <h5 class="home_card-title">Privatize a bar</h5>
       <p class="home_card-text">Privatize a bar to organize a sick party with all your alcoholics mates.</p>
       <%= form_tag("bars/", method: "get") do %>
-      <%= label_tag(:city, "Search a bar in a specific city:", id: "homepage", class: "home_label_tag") %>
-      <br>
-      <%= text_field_tag(:city) %>
+      <%= label_tag(:city, "Search a bar in a specific city:") %>
+      <%= text_field_tag :city, nil, placeholder: 'Type the city here' %> 
       <%= submit_tag("Search") %>
       <% end %>
     </div>
