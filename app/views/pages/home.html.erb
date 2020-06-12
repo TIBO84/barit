@@ -11,7 +11,7 @@
     <div class="home_card" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%=asset_path "sick_party.jpg" %>); background-size: cover;">
       <div class="home_card-body">
         <h5 class="home_card-title">Privatize a bar</h5>
-        <p class="home_card-text">Privatize a bar to organize a sick party with all your alcoholics mates.</p>
+        <p class="home_card-text">Privatize a bar to organize immmemorable events.</p>
         <%= form_tag("bars/", method: "get") do %>
         <%= label_tag(:city, "Search a bar in a specific city:", class: "home_label_tag") %>
         <br>
@@ -25,7 +25,7 @@
     <div class="home_card" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url(<%=asset_path "rent_your_bar.jpg" %>); background-size: cover;">
         <div class="home_card-body">
           <h5 class="home_card-title">Rent your bar</h5>
-          <p class="home_card-text">Rent your bar by the night for a price that doubles your best sales on the best day of the year.</p>
+          <p class="home_card-text">Rent your bar by the night.</p>
           <%= link_to 'Propose a bar', new_bar_path, class:"btn btn-primary" %>
         </div>
     </div>
