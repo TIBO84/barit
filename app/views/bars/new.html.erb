@@ -1,13 +1,16 @@
-<h1>Bars#new</h1>
+<div class="container">
 
-<%= simple_form_for @bar do |f| %>
-    <%= f.input :name %>
-    <%= f.input :capacity, as: :numeric %>
-    <%= f.input :ambiance %>
-    <%= f.input :address %>
-    <%= f.input :city %>
-    <%= f.input :price %>
-    <%= f.input :description, as: :text %>
+    <h1>Ajouter un bar</h1>
+    <%= simple_form_for @bar do |f| %>
+    <%= f.input :name, placeholder: 'Enter the name' %>
+    <%= f.input :capacity, as: :numeric, placeholder: 'Enter the capacity' %>
+    <%= f.input :ambiance, placeholder: 'Enter the ambiance' %>
+    <%= f.input :address, placeholder: 'Enter the address' %>
+    <%= f.input :city, placeholder: 'Enter the city' %>
+    <%= f.input :price, placeholder: 'Enter the price' %>
+    <%= f.input :description, as: :text, placeholder: 'Enter the description' %>
     <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
-<% end %>
+    <%= f.button :submit, class: 'btn-primary' %>
+    <% end %>
+
+</div>
