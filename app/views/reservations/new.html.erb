@@ -1,4 +1,9 @@
-<%= simple_form_for([@bar, @reservation]) do |f| %>
+
+
+<div class="container">
+    <h1>Select the date </h1>
+    <%= simple_form_for([@bar, @reservation]) do |f| %>
     <%= f.input :date %>
-    <%= f.button :submit %>
-  <% end %>
+    <%= f.submit class: "btn btn-primary"%>
+    <% end %>
+</div>
