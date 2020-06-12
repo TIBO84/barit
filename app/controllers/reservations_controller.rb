@@ -11,8 +11,9 @@ class ReservationsController < ApplicationController
     @reservation = @bar.reservations.build(reservation_params)
     @reservation.user_id = current_user.id
     if @reservation.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path, notice: "Reservation successful, see you soon my friend !"
     else
+      flash.now[:alert] = "The bar is already booked for this date !"
       render :new
     end
   end
