@@ -49,4 +49,13 @@ module ApplicationHelper
       return "- / 5"
     end
   end
+
+  def coming?(reservation)
+    if reservation.date > Date.today
+      return "coming"
+    else
+      return "passed"
+    end
+  end
+
 end

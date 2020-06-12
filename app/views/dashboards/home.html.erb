@@ -22,8 +22,8 @@
         <tbody>
           <% @reservations.each do |reservation| %>
           <% bar = Bar.find(reservation.bar_id) %>
-            <tr>
-              <td class=""><%= reservation.date.strftime('%Y-%m-%d') %></td>
+            <tr class="<%=coming?(reservation) %>">
+              <td><%= reservation.date.strftime('%Y-%m-%d') %></td>
               <td><%= link_to "#{bar.name}", bar_path(bar)  %><small><em><%= link_to "     (Let a review)", new_bar_review_path(reservation.bar) %></em></small></td>
               <td><%= reservation.created_at.strftime('%Y-%m-%d') %></td>
               <!-- <td><%#= link_to 'Edit', edit_reservation_path(flat) %></td> -->
