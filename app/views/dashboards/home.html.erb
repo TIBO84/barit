@@ -1,6 +1,8 @@
-<h1><%= "Dashboard #{@current_user.first_name}" %></h1>
+
 <div class="dashboard-main d-flex">
 <div class="dashboard">
+
+<h1><%= "Dashboard #{@current_user.first_name}" %></h1>
 
   <% if renter?(@current_user) %>
     <h2>My reservations</h2>

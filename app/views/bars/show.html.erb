@@ -1,13 +1,21 @@
 <div class="container">
 
     <h1><%= @bar.name %></h1>
-    <div class="card mb-5" style="position: relative; height: 600px; width: ">
-        <%= link_to "Book it", new_bar_reservation_path(@bar), class: "btn btn-primary color_home" ,style: "position: absolute; top: 30px; right: 30px"  %>
-        <%= link_to "Back to search", back_button_path(@search), class: "color_home btn btn-primary" ,style: "position: absolute; top: 30px; left: 30px"  %>
+
+    <div class="card mb-2">
+        <%= link_to "Book it", new_bar_reservation_path(@bar), class: "btn btn-primary" ,style: "position: absolute; top: 30px; right: 30px"  %>
+        <%= link_to "Back to search", back_button_path(@search), class: "btn btn-primary" ,style: "position: absolute; top: 30px; left: 30px"  %>
         <%if @bar.photo.attached?%>
-        <%= image_tag @bar.photo, class: "card-img-top" %>
-        <p class="card-text-description"><small><%= @bar.description %></small></p>
+    </div>
+        
+        
+        <%= image_tag @bar.photo, class: "card-img-top", style: "height: 400px; margin-bottom: 50px; object-fit: cover" %>
+        
+
+
         <% end %>
+        <p class="card-text-description"><small><%= @bar.description %></small></p>
+
 
         <div class="card-body">
             <div class="row m-0 d-flex justify-content-between">
@@ -18,11 +26,11 @@
             </div>
 
             <p class="card-text">Ambiance : <%= @bar.ambiance.capitalize %></p>
-            
+
             <p class="card-text">Address : <%= @bar.address %></p>
             <p class="card-text">City : <%= @bar.city.capitalize %></p>
         </div>
-    </div>
+    
 
 
     <ul class="list-group">
