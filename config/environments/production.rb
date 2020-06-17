@@ -109,4 +109,7 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  #To do so, go to your Rails project, open it in Sublime Text, and open the config/environments/production.rb file. Look for a commented line mentioning force_ssl. Update this line to have:
+  config.force_ssl = true
 end
